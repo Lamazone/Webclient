@@ -11,7 +11,9 @@ Webclient::Webclient(QWidget *parent) :
 void Webclient::on_ButtonGo_clicked()
 {
     ResultText->clear();
-    QTcpSocket* socket = new QTcpSocket(this);
+
+    socket = new QTcpSocket(this);
+
 
     m_HostNameString = HostName -> text();
 
@@ -29,7 +31,7 @@ void Webclient::on_ButtonGo_clicked()
 void Webclient::connected()
 {
 
-    this->socket->write(QString("GET / HTTP\1.1\r\nHost:" + m_HostNameString + "\r\n\r\n").toLocal8Bit());
+    this->socket->write("GET / HTTP/1.1\r\nHost:" + m_HostNameString.toLocal8Bit() + "\r\n\r\n");
 }
 void Webclient::ReadyRead()
 {
