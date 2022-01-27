@@ -26,7 +26,8 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        webclient.cpp
+        webclient.cpp \
+    main.cpp
 
 HEADERS += \
         webclient.h
